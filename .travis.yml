@@ -22,4 +22,15 @@ after_success:
   - docker push aviationfan/multi-nginx
   - docker push aviationfan/multi-server
   - docker push aviationfan/multi-worker
-  
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "Multidocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-256324106061"
+  bucket_path: "docker-multi"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
