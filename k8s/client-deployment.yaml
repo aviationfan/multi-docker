@@ -1,4 +1,4 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-deployment
@@ -9,7 +9,7 @@ spec:
       component: web
   template:
     metadata:
-      label:
+      labels:
         component: web
     spec:
       containers:
@@ -17,4 +17,3 @@ spec:
           image: aviationfan/multi-client
           ports:
             - containerPort: 3000
-            
